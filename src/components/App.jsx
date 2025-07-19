@@ -1,14 +1,37 @@
-
 // src/components/App.jsx
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import siteConfig from '../data/siteConfig';
+import emailjs from 'emailjs-com';
 
 const App = () => {
+  const [filter, setFilter] = useState("All");
+
+  const filteredProjects = siteConfig.projects.filter(
+    (proj) => filter === "All" || proj.tech.includes(filter)
+  );
+
+  const techOptions = ["All", ...new Set(siteConfig.projects.flatMap(p => p.tech))];
+
   useEffect(() => {
     toast.success('Welcome to my portfolio!');
   }, []);
+
+  const handleSend = (e) => {
+    e.preventDefault();
+    emailjs.sendForm(
+      'your_service_id',
+      'your_template_id',
+      e.target,
+      'your_user_id'
+    ).then(() => {
+      toast.success("Message sent!");
+      e.target.reset();
+    }).catch(() => {
+      toast.error("Failed to send message.");
+    });
+  };
 
   return (
     <main className="bg-white text-gray-800 min-h-screen overflow-x-hidden">
@@ -25,9 +48,9 @@ const App = () => {
       </header>
 
       <section id="hero" className="pt-24 pb-12 px-6 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 30 }} 
-          animate={{ opacity: 1, y: 0 }} 
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-4xl md:text-5xl font-bold mb-4"
         >
@@ -43,19 +66,44 @@ const App = () => {
             </span>
           ))}
         </div>
+        <a
+          href="/resume.pdf"
+          download
+          className="mt-4 inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+        >
+          Download Resume
+        </a>
       </section>
 
       <section id="projects" className="py-12 px-6 bg-gray-100">
         <h3 className="text-2xl font-bold mb-8 text-center">Featured Projects</h3>
+        <div className="mb-4 flex justify-center gap-3 flex-wrap">
+          {techOptions.map((tech, index) => (
+            <button
+              key={index}
+              onClick={() => setFilter(tech)}
+              className={`px-3 py-1 rounded-full text-sm ${
+                filter === tech ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700"
+              }`}
+            >
+              {tech}
+            </button>
+          ))}
+        </div>
         <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-          {siteConfig.projects.map((proj, index) => (
-            <motion.div 
-              key={index} 
-              whileHover={{ scale: 1.03 }} 
+          {filteredProjects.map((proj, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.03 }}
               className="bg-white p-6 rounded-xl shadow-md"
             >
               <h4 className="font-bold text-lg mb-2">{proj.title}</h4>
               <p className="text-sm text-gray-600 mb-4">{proj.description}</p>
+              <div className="flex gap-2 mb-2">
+                {proj.tech.map((t, i) => (
+                  <span key={i} className="text-xs bg-gray-100 px-2 py-1 rounded">{t}</span>
+                ))}
+              </div>
               <div className="flex justify-between text-sm font-medium">
                 <a href={proj.live} target="_blank" className="text-blue-500 hover:underline">Live Demo</a>
                 <a href={proj.github} target="_blank" className="text-gray-600 hover:underline">GitHub</a>
@@ -63,6 +111,41 @@ const App = () => {
             </motion.div>
           ))}
         </div>
+      </section>
+
+      <section id="blog" className="py-12 px-6 bg-white text-center">
+        <h3 className="text-2xl font-bold mb-6">Latest Articles</h3>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          {siteConfig.blog.map((post, index) => (
+            <div key={index} className="bg-gray-50 p-6 rounded shadow">
+              <h4 className="text-lg font-semibold mb-2">{post.title}</h4>
+              <p className="text-sm text-gray-600 mb-4">{post.summary}</p>
+              <a href={post.url} className="text-blue-600 hover:underline text-sm">Read More →</a>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-12 px-6 bg-gray-100 text-center">
+        <h3 className="text-2xl font-bold mb-6">Testimonials</h3>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          {siteConfig.testimonials.map((t, index) => (
+            <div key={index} className="bg-white p-6 rounded-xl shadow">
+              <p className="italic text-gray-700 mb-4">“{t.quote}”</p>
+              <p className="text-sm font-semibold text-gray-900">{t.name}, {t.role}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="github" className="py-12 px-6 text-center">
+        <h3 className="text-2xl font-bold mb-4">GitHub Activity</h3>
+        <img
+          loading="lazy"
+          src="https://github-readme-stats.vercel.app/api?username=Prin-mer&show_icons=true&theme=default"
+          alt="GitHub Stats"
+          className="mx-auto"
+        />
       </section>
 
       <section id="contact" className="py-12 px-6 text-center">
@@ -76,6 +159,15 @@ const App = () => {
           {siteConfig.socials.twitter && <a href={siteConfig.socials.twitter} className="text-blue-600 hover:underline">Twitter</a>}
         </div>
         <p className="text-gray-500 text-sm">📍 {siteConfig.contact.location} | 📞 {siteConfig.contact.phone}</p>
+
+        <form onSubmit={handleSend} className="mt-8 bg-white p-6 rounded shadow max-w-xl mx-auto">
+          <input name="name" required placeholder="Your Name" className="w-full px-4 py-2 mb-4 border border-gray-300 rounded" />
+          <input name="email" type="email" required placeholder="Your Email" className="w-full px-4 py-2 mb-4 border border-gray-300 rounded" />
+          <textarea name="message" required placeholder="Message..." className="w-full px-4 py-2 mb-4 border border-gray-300 rounded" />
+          <button type="submit" className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
+            Send
+          </button>
+        </form>
       </section>
 
       <footer className="py-6 text-center text-sm text-gray-500">
