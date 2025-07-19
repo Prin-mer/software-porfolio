@@ -1,9 +1,7 @@
-// src/components/App.jsx
 import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { motion } from 'framer-motion';
 import siteConfig from '../data/siteConfig';
-import emailjs from 'emailjs-com';
 
 const App = () => {
   const [filter, setFilter] = useState("All");
@@ -20,17 +18,8 @@ const App = () => {
 
   const handleSend = (e) => {
     e.preventDefault();
-    emailjs.sendForm(
-      'your_service_id',
-      'your_template_id',
-      e.target,
-      'your_user_id'
-    ).then(() => {
-      toast.success("Message sent!");
-      e.target.reset();
-    }).catch(() => {
-      toast.error("Failed to send message.");
-    });
+    toast.success("Message captured. (Form not connected to backend)");
+    e.target.reset();
   };
 
   return (
@@ -178,5 +167,3 @@ const App = () => {
 };
 
 export default App;
-
-       
