@@ -161,6 +161,9 @@ const App = () => {
                 src={profilePic} 
                 alt="Nkem Moye Profile" 
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  e.target.src = 'https://via.placeholder.com/400x400?text=Profile+Photo';
+                }}
               />
             </div>
             <div>
@@ -228,12 +231,17 @@ const App = () => {
                 "Nkem is a skilled Technical Project Manager. My experience working with him at Union Bank was overwhelmingly positive. He demonstrates strong analytical skills and excellent communication."
               </p>
               <div className="flex items-center mt-4">
-                <img 
-                  src="https://randomuser.me/api/portraits/men/32.jpg" 
-                  alt="Anthony Obasi" 
-                  className="w-10 h-10 rounded-full mr-4"
-                />
-                <div>
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200">
+                  <img 
+                    src={recommender1} 
+                    alt="Anthony Obasi" 
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/150?text=Recommender+1';
+                    }}
+                  />
+                </div>
+                <div className="ml-4">
                   <p className="font-semibold">Anthony Obasi, PSPO, PSM</p>
                   <p className="text-sm text-gray-500">January 29, 2024</p>
                 </div>
@@ -245,12 +253,17 @@ const App = () => {
                 "Highly proficient in Agile methodologies with strong grasp of SDLC. Nkem consistently delivered projects on schedule while maintaining excellent team morale."
               </p>
               <div className="flex items-center mt-4">
-                <img 
-                  src="https://randomuser.me/api/portraits/women/44.jpg" 
-                  alt="Tosin Okumoye" 
-                  className="w-10 h-10 rounded-full mr-4"
-                />
-                <div>
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200">
+                  <img 
+                    src={recommender2} 
+                    alt="Tosin Okumoye" 
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.target.src = 'https://via.placeholder.com/150?text=Recommender+2';
+                    }}
+                  />
+                </div>
+                <div className="ml-4">
                   <p className="font-semibold">Tosin Okumoye, PSPO</p>
                   <p className="text-sm text-gray-500">January 9, 2024</p>
                 </div>
