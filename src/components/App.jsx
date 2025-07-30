@@ -1,7 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import profilePic from './assets/profile.jpeg';
-import recommender1 from './assets/recommender1.jpg';
-import recommender2 from './assets/recommender2.jpg';
 
 const App = () => {
   // State management
@@ -13,6 +10,11 @@ const App = () => {
   const [showName, setShowName] = useState(true);
   const [typedText, setTypedText] = useState('');
   const [isTypingComplete, setIsTypingComplete] = useState(false);
+
+  // Image URLs
+  const profilePic = 'https://media.licdn.com/dms/image/v2/D4D03AQF9VgbNuyj6MQ/profile-displayphoto-shrink_400_400/B4DZUUDl76G4Ao-/0/1739798249072?e=2147483647&v=beta&t=UXsQVgutij3ibpHgOdqKdKNxBN1hsfg_Ax1ePR9LTzA';
+  const recommender1 = 'https://media.licdn.com/dms/image/v2/D4D03AQE6xLtriiJZKg/profile-displayphoto-shrink_400_400/0/1699984747983?e=2147483647&v=beta&t=JpqTNljjpZ0oYs-kFThwmwYbfmCjC2Y9uZlP799MVtI';
+  const recommender2 = 'https://media.licdn.com/dms/image/v2/C4D03AQF0crc8xiHOOQ/profile-displayphoto-shrink_400_400/0/1649155309843?e=2147483647&v=beta&t=rkeryNG9uAOTVM8H25LWE3L67shqpylxLDNgMUDY9V0';
 
   // Animation sequence
   useEffect(() => {
@@ -231,11 +233,12 @@ const App = () => {
                 "Nkem is a skilled Technical Project Manager. My experience working with him at Union Bank was overwhelmingly positive. He demonstrates strong analytical skills and excellent communication."
               </p>
               <div className="flex items-center mt-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200 relative">
                   <img 
                     src={recommender1} 
                     alt="Anthony Obasi" 
-                    className="w-full h-full object-cover object-top"
+                    className="absolute w-full h-full object-cover object-top"
+                    style={{ transform: 'scale(1.2)' }}
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/150?text=Recommender+1';
                     }}
@@ -253,11 +256,12 @@ const App = () => {
                 "Highly proficient in Agile methodologies with strong grasp of SDLC. Nkem consistently delivered projects on schedule while maintaining excellent team morale."
               </p>
               <div className="flex items-center mt-4">
-                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-purple-200 relative">
                   <img 
                     src={recommender2} 
                     alt="Tosin Okumoye" 
-                    className="w-full h-full object-cover object-top"
+                    className="absolute w-full h-full object-cover object-top"
+                    style={{ transform: 'scale(1.2)' }}
                     onError={(e) => {
                       e.target.src = 'https://via.placeholder.com/150?text=Recommender+2';
                     }}
