@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-
-// Profile image (place your image in the public folder)
-const profilePic = process.env.PUBLIC_URL + '/1739798249072.jpeg';
+import profilePic from './assets/profile.jpeg';
+import recommender1 from './assets/recommender1.jpg';
+import recommender2 from './assets/recommender2.jpg';
 
 const App = () => {
   // State management
