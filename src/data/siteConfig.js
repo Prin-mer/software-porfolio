@@ -1,4 +1,4 @@
-// src/data/site.config.js
+// src/data/siteConfig.js
 
 const siteConfig = {
   name: "Nkem Moye",
