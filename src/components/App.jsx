@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import siteConfig from "../data/siteConfig.js";
-import "./index.css";
+import "../index.css";
 
 function App() {
   const [typedText, setTypedText] = useState("");
