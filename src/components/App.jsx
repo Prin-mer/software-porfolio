@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import profilePic from './assets/profile.jpeg';
-import recommender 1 from './assets/recommender1.jpg';
-import recommender 2 from './assets/recommender2.jpg';
+import recommender1 from './assets/recommender1.jpg';
+import recommender2 from './assets/recommender2.jpg';
 
 const App = () => {
   // State management
