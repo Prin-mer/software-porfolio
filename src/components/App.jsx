@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import siteConfig from "./data/siteConfig.js";
+import siteConfig from "../data/siteConfig.js";
 import "./index.css";
 
 function App() {
