@@ -1,80 +1,77 @@
+// src/data/site.config.js
+
 const siteConfig = {
-  name: "Michael Akunna",
-  tagline: "Full Stack Developer",
-  about: {
-    intro: "Hi, I'm Michael — Full Stack Developer",
-    description:
-      "I specialize in building modern web apps using React, Node.js, and Tailwind CSS. Let's build something amazing together.",
+  name: "Nkem Moye",
+  role: "Technical Project Manager",
+  location: "Nigeria",
+
+  education: {
+    institution: "Tai Solarin University of Education",
+    degree: "B.Sc (Edu) Business Education (Accounting Option)",
+    class: "Second Class (Hons)",
+    years: "2010–2014"
   },
+
+  volunteerExperience: [
+    {
+      org: "The Iyin",
+      role: "Coordinator (Arts and Culture)",
+      period: "Nov 2011 – Dec 2015"
+    },
+    {
+      org: "T T and T Blusom",
+      role: "Data Manager",
+      period: "2020 – Present"
+    },
+    {
+      org: "Authentic Creations Publishing Apothecary",
+      role: "Infographic Contributor",
+      period: "Oct 2021 – Dec 2021"
+    }
+  ],
+
   skills: [
-    "JavaScript",
-    "React",
-    "Node.js",
-    "Tailwind CSS",
-    "Git",
-    "MongoDB",
-    "Vite",
+    "Application Testing",
+    "Project Management",
+    "IT Business Analysis",
+    "Business Analysis",
+    "Survey Design",
+    "Microsoft Power BI",
+    "Data Analytics",
+    "Performance Management",
+    "Microsoft PowerPoint",
+    "SurveyMonkey"
   ],
-  projects: [
+
+  recommendations: [
     {
-      title: "Task Manager App",
-      description:
-        "A task management tool with project boards and deadlines.",
-      tech: ["React", "Node.js", "MongoDB"],
-      live: "#",
-      github: "#",
+      name: "Anthony Obasi",
+      text: "Highlights Nkem’s analytical, communication, problem-solving, and teamwork skills."
     },
     {
-      title: "Portfolio Generator",
-      description:
-        "A tool that auto-generates portfolios from templates.",
-      tech: ["React", "Firebase"],
-      live: "#",
-      github: "#",
-    },
-    {
-      title: "EduSphere",
-      description:
-        "Online learning platform with courses and quizzes.",
-      tech: ["Vue.js", "Tailwind CSS", "Vite"],
-      live: "#",
-      github: "#",
-    },
+      name: "Tosin Okumoye",
+      text: "Emphasizes Nkem’s grasp of business analysis knowledge areas and effective stakeholder engagement."
+    }
   ],
-  blog: [
-    {
-      title: "5 Tips for Writing Clean React Code",
-      summary: "A quick guide to improving your React code quality.",
-      url: "#",
-    },
-    {
-      title: "Why I Use Tailwind for Every Project",
-      summary: "My thoughts on utility-first CSS and Tailwind's value.",
-      url: "#",
-    },
+
+  certifications: [
+    "Introduction to Data Analysis Using Excel – Rice University",
+    "Professional Conduct and Ethics – CIBN",
+    "Programming For Everybody (Getting Started with Python) – University of Michigan",
+    "Business Metrics for Data-Driven Companies – Duke University",
+    "Business Analysis & Process Management – Coursera",
+    "Requirements Engineering: Secure Software Specifications – University of Colorado",
+    "Introduction to Business Analysis Using Spreadsheets – Coursera",
+    "Fundamentals of Project Planning and Management – University of Virginia",
+    "Software Development Processes and Methodologies – University of Minnesota",
+    "The Business of Project Management – University of Virginia",
+    "What is Data Science? – IBM",
+    "Foundations of Project Management – Google",
+    "Agile Project Management – Google"
   ],
-  testimonials: [
-    {
-      name: "Jane Doe",
-      role: "CEO, Startup Co",
-      quote: "Michael delivered a top-quality app ahead of schedule!",
-    },
-    {
-      name: "John Smith",
-      role: "CTO, DevCompany",
-      quote: "His attention to detail and clean code is unmatched.",
-    },
-  ],
-  contact: {
-    email: "youremail@example.com",
-    phone: "+234 000 000 0000",
-    location: "Lagos, Nigeria",
-  },
-  socials: {
-    github: "https://github.com/Prin-mer",
-    linkedin: "#",
-    twitter: "#",
-  },
+
+  linkedin: "https://www.linkedin.com/in/nkemmoye/"
 };
 
-export default siteConfig
+export default siteConfig;
+  
