@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import profilePhoto from './assets/1739798249072.jpeg';
 
 const App = () => {
   // State management
