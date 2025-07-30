@@ -226,6 +226,16 @@ const App = () => {
       </header>
 
       {/* Main Content */}
+        {/* Fixed profile picture in top-right */}
+<div className="fixed top-4 right-4 z-50 flex flex-col items-center">
+  <img
+    src="/profile.jpg"
+    alt="Nkem Moye"
+    className="w-20 h-20 rounded-md object-cover border-2 border-white shadow-md"
+  />
+  <p className="mt-2 text-sm font-semibold text-white">Nkem Moye</p>
+</div>
+            
       <main className="container mx-auto px-6 pt-12 pb-24 animate-fade-in">
         {/* Home Section */}
         <section ref={sections.about} id="about" className="min-h-screen py-12">
